@@ -1,0 +1,17 @@
+.title {
+    border-bottom: solid;
+    border-color: gray;
+    padding: 10px;
+}
+
+.title-header {
+    text-align: center;
+}
+
+.centered {
+    align-content: center;
+}
+
+.margin-top {
+    margin-top: 40px;
+}
