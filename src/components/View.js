@@ -19,12 +19,12 @@ const View = () => {
 
     return (
         <FlexboxGrid className="margin-top" justify="center">
-            <FlexboxGrid.Item componentClass={Col} colspan={6} md={6}>
+            <FlexboxGrid.Item componentClass={Col} md={5}>
                 <Panel header='SunRise' bordered>
                     Sun rise today: {times.sunRise}
                 </Panel>
             </FlexboxGrid.Item>
-            <FlexboxGrid.Item componentClass={Col} colspan={6} md={6}>
+            <FlexboxGrid.Item componentClass={Col} md={5}>
                 <Panel header='SunRise' bordered>
                     Sun set today: {times.sunSet}
                 </Panel>
