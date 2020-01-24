@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from "react";
-import axios from 'axios';
-import {FlexboxGrid, Panel, Col} from "rsuite";
+import {Col, FlexboxGrid, Panel} from "rsuite";
 import './index.css';
+import {getSunTime} from "../api/SunTimesApi";
+import {getCityCoordinates} from "../api/CityLocationApi";
 
-const View = () => {
+const SunTimeToday = ({city}) => {
 
     const [times, setTimes] = useState({sunRise:'', sunSet:''});
 
     useEffect(() => {
-        axios.get("http://localhost:8080/sunset-sunrise/today")
+        getCityCoordinates(city)
+            .then(res => {
+                console.log(res);
+                return getSunTime({latitude: res.data.latitude, longitude: res.data.longitude});
+            })
             .then(res => {
                 setTimes({sunRise:res.data.sunRise, sunSet: res.data.sunSet});
             })
-            .catch(err => {
-                console.log(err);
-            });
-    }, []);
+            .catch(err => console.log(err));
+    }, [city]);
 
     return (
         <FlexboxGrid className="margin-top" justify="center">
@@ -33,4 +36,4 @@ const View = () => {
     )
 };
 
-export default View;
+export default SunTimeToday;

@@ -2,7 +2,9 @@ import React from "react";
 import {months} from '../util/constants';
 import './index.css';
 
-const Header = () => {
+const Header = ({
+    city
+}) => {
 
     const today = new Date();
     const month = months[today.getMonth()];
@@ -10,7 +12,7 @@ const Header = () => {
 
     return (
         <div className='title'>
-            <h2 className='title-header'>Riga, {month} {date}, SunRise/SunSet Times</h2>
+            <h2 className='title-header'>{city}, {month} {date}, SunRise/SunSet Times</h2>
         </div>
     );
 };
