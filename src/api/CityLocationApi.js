@@ -1,16 +1,17 @@
 import axios from 'axios';
 
-const basePath = 'http://localhost:5002/city-locations/';
+const domain = process.env.REACT_APP_SUNTIME_CITIES_DOMAIN;
+const path = '/city-locations/';
 const config = {
     Accept: 'application/json'
 };
 
 const getAllCities = () => {
-    return axios.get(basePath + 'cities');
+    return axios.get(domain + path + 'cities');
 };
 
 const getCityCoordinates = (cityName) => {
-    return axios.get(basePath + 'cities/' + cityName);
+    return axios.get(domain + path + 'cities/' + cityName);
 };
 
 export {
